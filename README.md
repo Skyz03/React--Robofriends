@@ -80,7 +80,6 @@ reportWebVitals();
 
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/42742924/152200433-95c274ce-328b-4eeb-baf6-0d4b4cfff5ff.png)
 
 
 ## Tech Stack
