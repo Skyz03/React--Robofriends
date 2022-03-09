@@ -1,70 +1,93 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React--Robofriends
 
-## Available Scripts
+This project is fully a react project where its fundaments such as ```components, props and its css``` and others linked are shown
 
-In the project directory, you can run:
+## Demo
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Making of React components.
+- Use of state related with props and others recently learned techniques such as destructuring and others.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Lessons Learned
 
-### `npm test`
+Few of the lessons learned are, how to start react app, the alerts it gives and how to break components and the use of props.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. In index.js I changed the App.js to any other components I needed like the Card.js
+2. I created the structure of Card.js & provided its HTML structure, these structure could be Hard coded but later on changed dynamic as per the properties passed in index.js which came from robots.js.
+3. The respective Card.js will have its styling as well.
+4. Then in index.js I came and passed the properties, and imported from robots.js and showed then per array values.
+5. Same props need to pass into card.js with destrutring method to use them in this case and makes our life easier.
 
-### `npm run build`
+```
+// Card.js
+import React from 'react';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const Card = (props) => {
+  const { name, email, id } = props
+  return (
+    <div className='tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5'>
+      <img src={`https://robohash.org/${id}?size=200x200`} alt='robots' />
+      <div>
+        <h2>{name}</h2>
+        <p>{email}</p>
+      </div>
+    </div >
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  )
+};
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+export default Card;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+// Index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import Card from './Card';
+import 'tachyons';
+import reportWebVitals from './reportWebVitals';
+import { robots } from "./robots"
 
-## Learn More
+ReactDOM.render(
+  <React.StrictMode>
+    <div>
+      <Card id={robots[0].id} name={robots[0].name} email={robots[0].email} />
+      <Card id={robots[1].id} name={robots[1].name} email={robots[1].email} />
+      <Card id={robots[2].id} name={robots[2].name} email={robots[2].email} />
+    </div>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Optimizations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Tech Stack
 
-### `npm run build` fails to minify
+**Client:** React, JS, CSS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Documentation
+
+
+# Notes 
+
