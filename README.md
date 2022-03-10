@@ -257,6 +257,143 @@ this.state = {
 You have access to the state object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. 
 Note that you must create a class component by extending React.Component in order to create state like this.
 
+State is one of the most powerful features of components in React. It allows you to track important data in your app and render a UI in response to changes in this data. If your data changes, your UI will change. React uses what is called a virtual DOM, to keep track of changes behind the scenes. When state data updates, it triggers a re-render of the components using that data - including child components that received the data as a prop. React updates the actual DOM, but only where necessary. This means you don't have to worry about changing the DOM. You simply declare what the UI should look like.<br>
+
+Note that if you make a component stateful, no other components are aware of its state. Its state is completely encapsulated, or local to that component, unless you pass state data to a child component as props. This notion of encapsulated state is very important because it allows you to write certain logic, then have that logic contained and isolated in one place in your code.
+
+A quick example of State
+```
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */ }
+<h1>{this.state.name} </h1>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+
+There is another way to access state in a component. In the render() method, before the return statement, you can write JavaScript directly. For example, you could declare functions, access data from state or props, perform computations on this data, and so on. Then, you can assign any data to variables, which you have access to in the return statement.
+
+//Another Way to Render State in the UI
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    // Change code below this line
+const name = this.state.name
+    // Change code above this line
+    return (
+      <div>
+        { /* Change code below this line */ }
+<h1>{name}</h1>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+```
+
+// Set State with this.setState
+The previous challenges covered component state and how to initialize state in the constructor. There is also a way to change the component's state. React provides a method for updating component state called setState. You call the setState method within your component class like so: this.setState(), passing in an object with key-value pairs. The keys are your state properties and the values are the updated state data. For instance, if we were storing a username in state and wanted to update it, it would look like this:
+
+```
+this.setState({
+  username: 'Lewis'
+});
+```
+This means is that state updates through the setState method can be asynchronous.
+
+The Change of the state when clicked:
+```
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    // Change code below this line
+this.setState({
+  name: "React Rocks!"
+})
+    // Change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+```
+
+#### Counter App 
+
+```
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    // Change code below this line
+this.increment = this.increment.bind(this);
+this.decrement = this.decrement.bind(this);
+this.reset = this.reset.bind(this);
+    // Change code above this line
+  }
+  // Change code below this line
+increment() {
+this.setState(state => ({
+  count: state.count + 1
+}))
+}
+
+decrement() {
+this.setState(state => ({
+  count: state.count - 1
+}))
+}
+
+reset() {
+this.setState({
+  count: 0
+})
+}
+
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+};
+```
+
 
 ## Optimizations
 
