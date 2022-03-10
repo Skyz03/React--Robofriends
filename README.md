@@ -153,7 +153,74 @@ class TypesOfFood extends React.Component {
 ReactDOM.render(<TypesOfFood />, document.getElementById("challenge-node"));
 ```
 
-### Props 
+### Props (Next important feature in React)
+Passing the properties to the child component. This can be a custom component created by us or supported by React.
+
+```const Welcome = (props) => <h1>Hello, {props.user}!</h1>``` <br>
+
+We use this concept in JavaScript Objects as well.
+
+```PASS THE PROP TO THE APP ONE WHERE IT IS BEING RENDERED => COME AND USE IT IN THE STATELESS FUNCTION CREATED TO MAKE IT DYNAMIC```
+
+Example 
+```
+const CurrentDate = (props) => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+      <p>The current date is:  {props.date}</p>
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        { /* Change code below this line */ }
+        <CurrentDate date={Date()}/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+```
+
+### An Array to the Prop
+
+```
+// Example also the power of join
+const List = (props) => {
+  { /* Change code below this line */ }
+  return <p>{props.tasks.join(", ")}</p>
+  { /* Change code above this line */ }
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        { /* Change code below this line */ }
+        <List tasks={["wow", "wow"]}/>
+        <h2>Tomorrow</h2>
+        <List tasks={["wow", "wow", "woow"]}/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+```
+
 
 ### State and its different features
 
