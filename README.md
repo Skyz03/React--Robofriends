@@ -68,15 +68,96 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+```
+### Stateless Functional Component
+There are two ways to create a React component. The first way is to use a JavaScript ```function another is class Component```. Defining a component in this way creates a stateless functional component. The concept of state in an application will be covered in later challenges. For now, think of a stateless component as one that can receive data and render it, but does not manage or track changes to that data. 
+To create a component with a function, you simply write a JavaScript function that returns either JSX
+One important thing to note is that React 
 
+```
+const DemoComponent = function() {
+  return (
+    <div className='customClass' />
+  );
+};
+```
 
 ### Class Components:
+The other way to define a React component is with the ES6 class syntax. In the following example, Kitten extends React.Component:
+```
+class Kitten extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h1>Hi</h1>
+    );
+  }
+}
+```
+This creates an ES6 class Kitten which extends the React.Component class. So the Kitten class now has access to many useful React features, such as local state and lifecycle hooks. Don't worry if you aren't familiar with these terms yet, they will be covered in greater detail in later challenges. Also notice the Kitten class has a constructor defined within it that calls super(). It uses super() to call the constructor of the parent class, in this case React.Component. The constructor is a special method used during the initialization of objects that are created with the class keyword. It is best practice to call a component's constructor with super, and pass props to both. This makes sure the component is initialized properly. For now, know that it is standard for this code to be included. Soon you will see other uses for the constructor as well as props.
+
+#### Parent & Child Component:
+
+```
+const ChildComponent = () => {
+  return (
+    <div>
+      <p>I am the child</p>
+    </div>
+  );
+};
+
+class ParentComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>I am the parent</h1>
+        { /* Change code below this line */ }
+<ChildComponent/>
+
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+```
+Rendering ES6 style class components within other components is no different than rendering the simple stateless functions components 
+
+A full Funtional Componets also including the Render Method: 
+
+```
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        {/* Change code below this line */}
+<Fruits />
+<Vegetables />
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+};
+
+// Change code below this line
+ReactDOM.render(<TypesOfFood />, document.getElementById("challenge-node"));
+```
 
 ### Props 
 
 ### State and its different features
 
-```
+
 
 
 ## Optimizations
