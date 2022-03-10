@@ -221,14 +221,15 @@ class ToDo extends React.Component {
 };
 ```
 Assigning the Default Properties:
-```MyComponent.defaultProps = { location: 'San Francisco' }``` // For Strings 
-```MyComponent.defaultProps = { location: San Francisco }``` // For Numbers 
+```MyComponent.defaultProps = { location: 'San Francisco' }``` // For Strings <br>
+```MyComponent.defaultProps = { location: San Francisco }``` // For Numbers <br>
 
-//Props for Numbers =:
+```//Props for Numbers =:
     return <Items quantity={10}/>
 
 //Overriding the Default Props:
   return <Items quantity={10}/>
+```
 
 //Using the PropTypes:
 ```MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
