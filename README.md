@@ -220,11 +220,41 @@ class ToDo extends React.Component {
   }
 };
 ```
+Assigning the Default Properties:
+```MyComponent.defaultProps = { location: 'San Francisco' }``` // For Strings 
+```MyComponent.defaultProps = { location: San Francisco }``` // For Numbers 
 
+//Props for Numbers =:
+    return <Items quantity={10}/>
 
-### State and its different features
+//Overriding the Default Props:
+  return <Items quantity={10}/>
 
+//Using the PropTypes:
+```MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+Items.propTypes = { quantity: PropTypes.number.isRequired }
+```
 
+#### Accesing the Props in the Class Component of React:
+```
+   <Welcome name="sky" />
+  <p>Hello, <strong>{this.props.name}</strong>!</p>  
+```
+A stateless functional component is any function you write which accepts props and returns JSX. A stateless component, on the other hand, is a class that extends React.Component, but does not use internal state (covered in the next challenge). Finally, a stateful component is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+Our Objective is to create the best stateless fucntional components. This helps contain your state management to a specific area of your application. In turn, this improves development and maintenance of your app by making it easier to follow how changes to state affect its behavior.
+
+### State and its different features (Another very important Topic):
+
+State consists of any data your application needs to know about, that can change over time. <br>
+You want your apps to respond to state changes and present an updated UI when necessary. React offers a nice solution for the state management of modern web applications. You create state in a React component by declaring a state property on the component class in its constructor. This initializes the component with state when it is created. The state property must be set to a JavaScript object. Declaring it looks like this: <br>
+```
+this.state = {
+  name: "name"
+}
+```
+You have access to the state object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. 
+Note that you must create a class component by extending React.Component in order to create state like this.
 
 
 ## Optimizations
