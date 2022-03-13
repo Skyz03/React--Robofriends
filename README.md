@@ -555,6 +555,12 @@ class RenderInput extends React.Component {
 };
 ```
 
+### React LifeCycle Methods:
+
+
+
+### Inline Style
+
 
 
 ## Optimizations
