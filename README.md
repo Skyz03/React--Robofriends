@@ -558,9 +558,98 @@ class RenderInput extends React.Component {
 ### React LifeCycle Methods:
 
 
-
 ### Inline Style
+You apply inline styles to JSX elements similar to how you do it in HTML, but with a few JSX differences. Here's an example of an inline style in HTML:
+```
+<div style={{color: "yellow", fontSize: 16}}>Mellow Yellow</div>
+```
 
+There is also a possibilty for const style =  { 
+color: "red",
+border: '1px solid red'
+}
+
+then call this method using {} in any part related with the className.
+
+
+### Advance JS in React Render Method:
+In previous challenges, you learned how to inject JavaScript code into JSX code using curly braces, { }, for tasks like accessing props, passing props, accessing state, inserting comments into your code, and most recently, styling your components. These are all common use cases to put JavaScript in JSX, but they aren't the only way that you can utilize JavaScript code in your React components.<br>
+You can also write JavaScript directly in your render methods, before the return statement, without inserting it inside of curly braces. This is because it is not yet within the JSX code. When you want to use a variable later in the JSX code inside the return statement, you place the variable name inside curly braces.
+```
+const inputStyle = {
+  width: 235,
+  margin: 5
+};
+
+class MagicEightBall extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInput: '',
+      randomIndex: ''
+    };
+    this.ask = this.ask.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  ask() {
+    if (this.state.userInput) {
+      this.setState({
+        randomIndex: Math.floor(Math.random() * 20),
+        userInput: ''
+      });
+    }
+  }
+  handleChange(event) {
+    this.setState({
+      userInput: event.target.value
+    });
+  }
+  render() {
+    const possibleAnswers = [
+      'It is certain',
+      'It is decidedly so',
+      'Without a doubt',
+      'Yes, definitely',
+      'You may rely on it',
+      'As I see it, yes',
+      'Outlook good',
+      'Yes',
+      'Signs point to yes',
+      'Reply hazy try again',
+      'Ask again later',
+      'Better not tell you now',
+      'Cannot predict now',
+      'Concentrate and ask again',
+      "Don't count on it",
+      'My reply is no',
+      'My sources say no',
+      'Most likely',
+      'Outlook not so good',
+      'Very doubtful'
+    ];
+    const answer =  possibleAnswers[this.state.randomIndex] ; // Change this line
+    return (
+      <div>
+        <input
+          type='text'
+          value={this.state.userInput}
+          onChange={this.handleChange}
+          style={inputStyle}
+        />
+        <br />
+        <button onClick={this.ask}>Ask the Magic Eight Ball!</button>
+        <br />
+        <h3>Answer:</h3>
+        <p>
+          {/* Change code below this line */}
+<p>{answer}</p>
+          {/* Change code above this line */}
+        </p>
+      </div>
+    );
+  }
+}
+```
 
 
 ## Optimizations
